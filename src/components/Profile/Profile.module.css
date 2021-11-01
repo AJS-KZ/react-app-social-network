@@ -1,0 +1,16 @@
+.content {
+    grid-area: c;
+    background-color: floralwhite;
+  }
+  
+.content img {
+object-position: top;
+object-fit: cover;
+height: 300px;
+width: 100%;
+}
+  
+.ava {
+height: 150px;
+width: 150px;
+}
