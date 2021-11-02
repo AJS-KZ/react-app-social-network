@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './MyPosts.module.css';
+// import styles from './MyPosts.module.css';
 import Post from "./Post/Post.jsx";
 
 const MyPosts = () => {
@@ -13,9 +13,9 @@ const MyPosts = () => {
                     <button>ADD POST</button>
                 </div>
                 <div>
-                    <Post />
-                    <Post />
-                    <Post />
+                    <Post message="Hello World!" likesCount="21"/>
+                    <Post message="Second Message ... " likesCount="17"/>
+                    <Post message="Third Message;" likesCount="9"/>
                     
                 </div>
             </div>
