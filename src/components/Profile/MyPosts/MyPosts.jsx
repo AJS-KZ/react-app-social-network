@@ -4,15 +4,9 @@ import styles from './MyPosts.module.css';
 import Post from "./Post/Post.jsx";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let postData = [
-        {id: 1, message: 'Hello World!', likesCount: 21},
-        {id: 2, message: 'Second Message ... ', likesCount: 17},
-        {id: 3, message: 'First Message;', likesCount: 9}
-    ]
-
-    let postElements = postData.map(post => <Post message={post.message} likesCount={post.likesCount} />);
+    let postElements = props.posts.map(post => <Post message={post.message} likesCount={post.likesCount} />);
 
     return (
         <div>
@@ -28,7 +22,7 @@ const MyPosts = () => {
                     </div>
                 </div>
                 <div className={styles.postItem}>
-                    { postElements }
+                    {postElements}
                 </div>
             </div>
         </div>
