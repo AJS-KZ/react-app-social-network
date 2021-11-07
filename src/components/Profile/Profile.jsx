@@ -1,19 +1,13 @@
 import React from "react";
 
+// import styles from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts.jsx";
-import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 const Profile = () => {
   return (
     <div>
-      <div>
-        <img
-          className={styles.contentImg}
-          src="https://cdn.fishki.net/upload/post/2018/06/04/2615820/11.jpg"
-          alt="content_pic"
-        />
-      </div>
-      <div>ava + descriptions</div>
+      <ProfileInfo />
       <MyPosts />
     </div>
   );

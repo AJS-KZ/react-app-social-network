@@ -1,31 +1,33 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
 
-const Dialogs = () => {
+
+const Dialogs = (props) => {
+
+    let dialogs = [
+        {id: 1, name: 'Capitan America'},
+        {id: 2, name: 'Barton'},
+        {id: 3, name: 'Thor'}
+    ]
+    
+    let messages = [
+        {id: 1, message: 'Hello!'},
+        {id: 2, message: 'ABC'},
+        {id: 3, message: 'bla bla bla!'}
+    ]
+
+    let dialogElements = dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+    let messagesElements = messages.map( m => <Message message={m.message} />);
+
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                <div className={styles.dialogsItemsActive}>
-                    Capitan America
-                </div>
-                <div className={styles.dialog}>
-                    Barton
-                </div>
-                <div className={styles.dialog}>
-                    Thor
-                </div>
+                {dialogElements}
             </div>
             <div className={styles.messages}>
-                <div className={styles.message}>
-                    Hello!
-                </div>
-                <div className={styles.message}>
-                    ABC
-                </div>
-                <div className={styles.message}>
-                    XYZ
-                </div>
-
+                {messagesElements}
             </div>
         </div>
     )

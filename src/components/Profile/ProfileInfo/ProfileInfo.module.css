@@ -1,0 +1,38 @@
+.content {
+  position:relative
+}
+
+.contentImg {
+    position:absolute;
+    object-position: top;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+  }
+
+.descriptionBlock {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    padding-top: 210px;
+    grid-gap: 5px;
+    text-decoration: none;
+}
+
+.descriptionItem {
+    border: 3px solid rgb(17, 155, 17);
+    border-radius: 30px;
+    background-color: lightskyblue;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.userAvaItem {
+    border: 5px solid rgb(17, 155, 17);
+    background-color: lightskyblue;
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    padding: 10px;
+    margin-left: 10px;
+}

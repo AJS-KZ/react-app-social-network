@@ -1,6 +1,8 @@
 .item {
     background-color: floralwhite;
     color: green;
+    padding: 5px;
+    /* padding-bottom: 10px; */
   }
   
   .itemImage {
