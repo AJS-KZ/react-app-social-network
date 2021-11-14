@@ -19,6 +19,10 @@
     padding: 10px;
 }
 
-.message {
+.newMessage {
+    padding-top: 10px;
+}
 
+.textArea {
+    padding: 5px;
 }
