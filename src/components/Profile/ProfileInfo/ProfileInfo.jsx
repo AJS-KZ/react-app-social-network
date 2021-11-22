@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
                     />
                 </div>
                 <div className={styles.descriptionItem}>
-                    Here some DESCRIPTION
+                    Here some BIO DESCRIPTION
                 </div>
             </div>
         </div>
