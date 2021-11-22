@@ -30,7 +30,7 @@ let store = {
     getState(){
         return this._state;
     },
-    addPost(){
+    _addPost(){
         let newPost = {
             id: this._state.profilePage.postData.length,
             message: this._state.profilePage.newPostText,
@@ -40,7 +40,7 @@ let store = {
         this._state.profilePage.newPostText = '';
         this._callSubscriber();
     },
-    updateNewPostText(newText){
+    _updateNewPostText(newText){
         this._state.profilePage.newPostText = newText;
         this._callSubscriber();
     },
@@ -50,17 +50,9 @@ let store = {
 
     dispatch(action){
         if (action.type === 'add_post'){
-            let newPost = {
-                id: this._state.profilePage.postData.length,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            }
-            this._state.profilePage.postData.unshift(newPost)
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber();
+            this._addPost();
         }else if (action.type === 'update_new_post_text'){
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber();
+            this._updateNewPostText(action.newText)
         }
     }
 }
