@@ -5,11 +5,14 @@ import MyPosts from "./MyPosts/MyPosts.jsx";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 const Profile = (props) => {
-  debugger;
   return (
     <div>
       <ProfileInfo />
-      <MyPosts posts={props.posts.postData} addPost={props.addPost}/>
+      <MyPosts
+        posts={props.profilePage.postData}
+        newPostText={props.profilePage.newPostText}
+        dispatch={props.dispatch}
+      />
     </div>
   );
 };
