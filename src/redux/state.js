@@ -1,7 +1,5 @@
-const ADD_POST = 'add_post';
-const UPDATE_NEW_POST_TEXT = 'update_new_post_text';
-const UPDATE_NEW_MESSAGE_BODY = 'update_new_message_body';
-const SEND_MESSAGE = 'send_message';
+import dialogsReducer from "./dialogs-reducer.js";
+import profileReducer from "./profile-reducer.js";
 
 
 let store = {
@@ -37,79 +35,16 @@ let store = {
     getState(){
         return this._state;
     },
-    _addPost(){
-        let newPost = {
-            id: this._state.profilePage.postData.length,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.postData.unshift(newPost)
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber();
-    },
-    _updateNewPostText(newText){
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber();
-    },
-    _updateNewMessageBody(newMessage){
-        this._state.messagesPage.newMessageBody = newMessage;
-        this._callSubscriber();
-    },
-
-    _sendMessage(){
-        let body = this._state.messagesPage.newMessageBody;
-        this._state.messagesPage.newMessageBody = "";
-        let newMessage = {
-            id: this._state.messagesPage.messages.length,
-            message: body
-        }
-        this._state.messagesPage.messages.push(newMessage);
-        this._callSubscriber();
-    },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
 
     dispatch(action){
-        if (action.type === ADD_POST){
-            this._addPost();
-        }else if (action.type === UPDATE_NEW_POST_TEXT){
-            this._updateNewPostText(action.newText)
-        }else if (action.type === UPDATE_NEW_MESSAGE_BODY){
-            this._updateNewMessageBody(action.newMessage)
-        }else if (action.type === SEND_MESSAGE){
-            this._sendMessage();
-        }
-    }
-}
-
-
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    };
-}
-
-
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-}
-
-
-export const sendMessageActionCreator = () => {
-    return {
-        type: SEND_MESSAGE
-    };
-}
-
-
-export const updateNewMessageBodyActionCreator = (someMessage) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY,
-        newMessage: someMessage
+        
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+        this._callSubscriber();
+        
     }
 }
 
