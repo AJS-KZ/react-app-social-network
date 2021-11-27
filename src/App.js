@@ -26,13 +26,9 @@ function App(props) {
         <Route
           path='/profile'
           // component={profile_component}   <--- если отрисовывать вот так, то почему то в инпут нельзя вводить более одного символа
-          render={() => <Profile 
-                          // store={props.store}
-                        />}
+          render={() => <Profile />}
         />
-        <Route path='/dialogs' render={() => <DialogsContainer 
-                                                // store={props.store}
-                                            />} />
+        <Route path='/dialogs' render={() => <DialogsContainer />} />
       </div>
     </div>
   );
